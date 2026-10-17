@@ -1,36 +1,82 @@
 /* ==========================================================================
    Design System & CSS Variables - Juan David Reyes Portfolio
    ========================================================================== */
-:root {
-  /* Color Palette - Premium Web3 Dark Aesthetic */
-  --bg-primary: #0b0c16;
-  --bg-secondary: #121426;
-  --bg-card: rgba(22, 25, 48, 0.65);
-  --bg-card-hover: rgba(30, 34, 66, 0.85);
-  --bg-glass: rgba(18, 20, 38, 0.7);
+:root, [data-theme="morning"] {
+  /* Color Palette - Morning Sky & Dawn (Default) */
+  --bg-primary: #f8fafc;
+  --bg-body-gradient: linear-gradient(180deg, #fffcf7 0%, #f8fafc 40%, #f1f5f9 100%);
+  --bg-secondary: #ffffff;
+  --bg-card: rgba(255, 255, 255, 0.85);
+  --bg-card-hover: rgba(255, 255, 255, 0.98);
+  --bg-glass: rgba(255, 255, 255, 0.85);
   
-  /* Accent Gradients & Colors */
-  --accent-purple: #7928ca;
+  /* Accent Gradients & Colors - Fresh Morning Sunrise */
+  --accent-purple: #7c3aed;
   --accent-indigo: #4f46e5;
-  --accent-cyan: #06b6d4;
-  --accent-pink: #ec4899;
-  --gradient-primary: linear-gradient(135deg, #7928ca 0%, #4f46e5 50%, #06b6d4 100%);
-  --gradient-glow: linear-gradient(135deg, rgba(121, 40, 202, 0.4), rgba(79, 70, 229, 0.3));
-  --gradient-card-border: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.02));
+  --accent-cyan: #0284c7;
+  --accent-pink: #db2777;
+  --accent-amber: #ea580c;
+  
+  --gradient-primary: linear-gradient(135deg, #f97316 0%, #db2777 50%, #4f46e5 100%);
+  --gradient-glow: linear-gradient(135deg, rgba(249, 115, 22, 0.3), rgba(79, 70, 229, 0.2));
+  --gradient-card-border: linear-gradient(135deg, rgba(234, 88, 12, 0.2), rgba(0, 0, 0, 0.04));
   
   /* Text Colors */
-  --text-main: #f8fafc;
-  --text-muted: #94a3b8;
-  --text-dim: #64748b;
-  --text-white: #ffffff;
+  --text-main: #334155;
+  --text-muted: #64748b;
+  --text-dim: #94a3b8;
+  --text-white: #0f172a;
   
   /* Borders & Shadows */
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-highlight: rgba(121, 40, 202, 0.4);
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
-  --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.5), 0 0 1px 1px var(--border-subtle);
-  --shadow-hover: 0 20px 40px -15px rgba(121, 40, 202, 0.25), 0 0 1px 1px var(--border-highlight);
+  --border-subtle: rgba(226, 232, 240, 0.9);
+  --border-highlight: rgba(234, 88, 12, 0.45);
+  --shadow-sm: 0 2px 8px rgba(100, 116, 139, 0.08);
+  --shadow-card: 0 10px 30px -10px rgba(100, 116, 139, 0.12), 0 0 1px 1px rgba(226, 232, 240, 0.7);
+  --shadow-hover: 0 20px 40px -15px rgba(234, 88, 12, 0.22), 0 0 1px 1px var(--border-highlight);
   
+  /* Ambient Glows */
+  --glow-top: radial-gradient(circle, rgba(251, 146, 60, 0.25) 0%, rgba(248, 250, 252, 0) 70%);
+  --glow-bottom: radial-gradient(circle, rgba(56, 189, 248, 0.2) 0%, rgba(248, 250, 252, 0) 70%);
+  --glow-contact: radial-gradient(circle, rgba(251, 146, 60, 0.2) 0%, transparent 70%);
+
+  /* Section Styling */
+  --bg-section-accent: linear-gradient(180deg, rgba(248, 250, 252, 0) 0%, rgba(254, 243, 199, 0.45) 50%, rgba(248, 250, 252, 0) 100%);
+  --border-section-accent: rgba(245, 158, 11, 0.18);
+
+  /* Specific Components */
+  --badge-bg: rgba(245, 158, 11, 0.12);
+  --badge-border: rgba(245, 158, 11, 0.32);
+  --badge-color: #c2410c;
+  --badge-glow-1: rgba(245, 158, 11, 0.2);
+  --badge-glow-2: rgba(245, 158, 11, 0.45);
+
+  --card-badge-bg: rgba(245, 158, 11, 0.12);
+  --card-badge-color: #c2410c;
+  --card-badge-border: rgba(245, 158, 11, 0.25);
+  --card-role-color: #0284c7;
+
+  --section-tag-color: #ea580c;
+
+  --btn-secondary-bg: rgba(255, 255, 255, 0.85);
+  --btn-secondary-border: rgba(203, 213, 225, 0.85);
+  --btn-secondary-hover-bg: #ffffff;
+  --btn-secondary-hover-border: rgba(148, 163, 184, 0.8);
+
+  --btn-cta-shadow: 0 4px 14px rgba(234, 88, 12, 0.35);
+  --btn-cta-hover-shadow: 0 6px 20px rgba(234, 88, 12, 0.5);
+
+  --contact-chip-bg: rgba(255, 255, 255, 0.95);
+  --contact-chip-border: rgba(203, 213, 225, 0.8);
+  --contact-chip-hover-bg: rgba(254, 243, 199, 0.85);
+  --contact-chip-hover-border: rgba(245, 158, 11, 0.45);
+  --contact-chip-hover-color: #9a3412;
+  --contact-chip-hover-shadow: 0 8px 20px rgba(245, 158, 11, 0.22);
+
+  --nav-link-hover-bg: rgba(0, 0, 0, 0.05);
+  --nav-link-hover-color: #0f172a;
+
+  --footer-bg: rgba(248, 250, 252, 0.9);
+
   /* Layout & Spacing */
   --max-width: 1120px;
   --header-height: 76px;
@@ -39,6 +85,79 @@
   --radius-lg: 22px;
   --radius-full: 9999px;
   --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ==========================================================================
+   Night Theme (Web3 Dark Aesthetic)
+   ========================================================================== */
+[data-theme="night"] {
+  --bg-primary: #0b0c16;
+  --bg-body-gradient: none;
+  --bg-secondary: #121426;
+  --bg-card: rgba(22, 25, 48, 0.65);
+  --bg-card-hover: rgba(30, 34, 66, 0.85);
+  --bg-glass: rgba(18, 20, 38, 0.7);
+  
+  --accent-purple: #7928ca;
+  --accent-indigo: #4f46e5;
+  --accent-cyan: #06b6d4;
+  --accent-pink: #ec4899;
+  --accent-amber: #f59e0b;
+  
+  --gradient-primary: linear-gradient(135deg, #7928ca 0%, #4f46e5 50%, #06b6d4 100%);
+  --gradient-glow: linear-gradient(135deg, rgba(121, 40, 202, 0.4), rgba(79, 70, 229, 0.3));
+  --gradient-card-border: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.02));
+  
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --text-dim: #64748b;
+  --text-white: #ffffff;
+  
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-highlight: rgba(121, 40, 202, 0.4);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+  --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.5), 0 0 1px 1px var(--border-subtle);
+  --shadow-hover: 0 20px 40px -15px rgba(121, 40, 202, 0.25), 0 0 1px 1px var(--border-highlight);
+  
+  --glow-top: radial-gradient(circle, rgba(121, 40, 202, 0.22) 0%, rgba(11, 12, 22, 0) 70%);
+  --glow-bottom: radial-gradient(circle, rgba(6, 182, 212, 0.15) 0%, rgba(11, 12, 22, 0) 70%);
+  --glow-contact: radial-gradient(circle, rgba(121, 40, 202, 0.25) 0%, transparent 70%);
+
+  --bg-section-accent: linear-gradient(180deg, rgba(18, 20, 38, 0) 0%, rgba(25, 18, 48, 0.5) 50%, rgba(18, 20, 38, 0) 100%);
+  --border-section-accent: rgba(121, 40, 202, 0.12);
+
+  --badge-bg: rgba(121, 40, 202, 0.15);
+  --badge-border: rgba(121, 40, 202, 0.3);
+  --badge-color: #c084fc;
+  --badge-glow-1: rgba(121, 40, 202, 0.2);
+  --badge-glow-2: rgba(121, 40, 202, 0.5);
+
+  --card-badge-bg: rgba(121, 40, 202, 0.2);
+  --card-badge-color: #d8b4fe;
+  --card-badge-border: rgba(121, 40, 202, 0.35);
+  --card-role-color: var(--accent-cyan);
+
+  --section-tag-color: var(--accent-cyan);
+
+  --btn-secondary-bg: rgba(255, 255, 255, 0.05);
+  --btn-secondary-border: var(--border-subtle);
+  --btn-secondary-hover-bg: rgba(255, 255, 255, 0.1);
+  --btn-secondary-hover-border: rgba(255, 255, 255, 0.2);
+
+  --btn-cta-shadow: 0 4px 14px rgba(121, 40, 202, 0.35);
+  --btn-cta-hover-shadow: 0 6px 20px rgba(121, 40, 202, 0.5);
+
+  --contact-chip-bg: rgba(255, 255, 255, 0.04);
+  --contact-chip-border: var(--border-subtle);
+  --contact-chip-hover-bg: rgba(121, 40, 202, 0.2);
+  --contact-chip-hover-border: rgba(121, 40, 202, 0.5);
+  --contact-chip-hover-color: var(--text-white);
+  --contact-chip-hover-shadow: 0 8px 20px rgba(121, 40, 202, 0.25);
+
+  --nav-link-hover-bg: rgba(255, 255, 255, 0.05);
+  --nav-link-hover-color: var(--text-white);
+
+  --footer-bg: rgba(11, 12, 22, 0.8);
 }
 
 /* ==========================================================================
@@ -58,6 +177,7 @@ html {
 body {
   font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   background-color: var(--bg-primary);
+  background-image: var(--bg-body-gradient);
   color: var(--text-main);
   line-height: 1.6;
   min-height: 100vh;
@@ -65,6 +185,7 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 /* Background Ambient Glows */
@@ -75,10 +196,11 @@ body::before {
   right: -100px;
   width: 550px;
   height: 550px;
-  background: radial-gradient(circle, rgba(121, 40, 202, 0.22) 0%, rgba(11, 12, 22, 0) 70%);
+  background: var(--glow-top);
   filter: blur(80px);
   z-index: -1;
   pointer-events: none;
+  transition: background 0.5s ease;
 }
 
 body::after {
@@ -88,10 +210,11 @@ body::after {
   left: -150px;
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(6, 182, 212, 0.15) 0%, rgba(11, 12, 22, 0) 70%);
+  background: var(--glow-bottom);
   filter: blur(90px);
   z-index: -1;
   pointer-events: none;
+  transition: background 0.5s ease;
 }
 
 /* Common Container */
@@ -116,7 +239,7 @@ body::after {
   border-bottom: 1px solid var(--border-subtle);
   display: flex;
   align-items: center;
-  transition: var(--transition);
+  transition: var(--transition), background-color 0.4s ease, border-color 0.4s ease;
 }
 
 .nav-container {
@@ -164,22 +287,111 @@ body::after {
 }
 
 .nav-link:hover {
-  color: var(--text-white);
-  background: rgba(255, 255, 255, 0.05);
+  color: var(--nav-link-hover-color);
+  background: var(--nav-link-hover-bg);
 }
 
 /* Highlighted Contact Button in Nav */
 .nav-link.nav-cta {
   background: var(--gradient-primary);
-  color: var(--text-white);
+  color: #ffffff;
   border-radius: var(--radius-full);
   padding: 0.5rem 1.25rem;
-  box-shadow: 0 4px 14px rgba(121, 40, 202, 0.35);
+  box-shadow: var(--btn-cta-shadow);
 }
 
 .nav-link.nav-cta:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(121, 40, 202, 0.5);
+  box-shadow: var(--btn-cta-hover-shadow);
+}
+
+/* ==========================================================================
+   Theme Toggle Button (Morning / Night Switcher in Top Right)
+   ========================================================================== */
+.theme-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: var(--bg-card);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-full);
+  padding: 0.35rem 0.85rem 0.35rem 0.45rem;
+  cursor: pointer;
+  color: var(--text-main);
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+  outline: none;
+  user-select: none;
+}
+
+.theme-toggle-btn:hover {
+  border-color: var(--border-highlight);
+  background: var(--bg-card-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+.theme-icon-container {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(234, 88, 12, 0.15));
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  color: #ea580c;
+  flex-shrink: 0;
+}
+
+[data-theme="night"] .theme-icon-container {
+  background: linear-gradient(135deg, rgba(121, 40, 202, 0.25), rgba(79, 70, 229, 0.2));
+  border-color: rgba(121, 40, 202, 0.4);
+  color: #c084fc;
+}
+
+.theme-icon {
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
+}
+
+/* Morning Mode: Sun is visible, Moon is hidden */
+.sun-icon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+.moon-icon {
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.5);
+}
+
+/* Night Mode: Moon is visible, Sun is hidden */
+[data-theme="night"] .sun-icon {
+  opacity: 0;
+  transform: rotate(90deg) scale(0.5);
+}
+
+[data-theme="night"] .moon-icon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+.theme-toggle-text {
+  letter-spacing: -0.01em;
+  font-weight: 600;
+  color: var(--text-main);
+  transition: color 0.3s ease;
+  white-space: nowrap;
 }
 
 /* ==========================================================================
@@ -195,15 +407,16 @@ body::after {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: rgba(121, 40, 202, 0.15);
-  border: 1px solid rgba(121, 40, 202, 0.3);
+  background: var(--badge-bg);
+  border: 1px solid var(--badge-border);
   padding: 0.4rem 1rem;
   border-radius: var(--radius-full);
-  color: #c084fc;
+  color: var(--badge-color);
   font-size: 0.875rem;
   font-weight: 600;
   margin-bottom: 1.5rem;
   animation: pulse-glow 3s infinite ease-in-out;
+  transition: var(--transition);
 }
 
 .hero-badge .status-dot {
@@ -221,6 +434,7 @@ body::after {
   letter-spacing: -0.03em;
   margin-bottom: 1.25rem;
   color: var(--text-white);
+  transition: color 0.3s ease;
 }
 
 .hero-gradient-text {
@@ -234,8 +448,9 @@ body::after {
   margin: 0 auto 2.5rem;
   color: var(--text-muted);
   font-size: clamp(1.05rem, 2vw, 1.25rem);
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.7;
+  transition: color 0.3s ease;
 }
 
 .hero-actions {
@@ -262,25 +477,25 @@ body::after {
 
 .btn-primary {
   background: var(--gradient-primary);
-  color: var(--text-white);
+  color: #ffffff;
   border: none;
-  box-shadow: 0 10px 25px -5px rgba(121, 40, 202, 0.4);
+  box-shadow: var(--btn-cta-shadow);
 }
 
 .btn-primary:hover {
   transform: translateY(-3px);
-  box-shadow: 0 15px 30px -5px rgba(121, 40, 202, 0.6);
+  box-shadow: var(--btn-cta-hover-shadow);
 }
 
 .btn-secondary {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--btn-secondary-bg);
   color: var(--text-main);
-  border: 1px solid var(--border-subtle);
+  border: 1px solid var(--btn-secondary-border);
 }
 
 .btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.2);
+  background: var(--btn-secondary-hover-bg);
+  border-color: var(--btn-secondary-hover-border);
   transform: translateY(-3px);
 }
 
@@ -290,6 +505,7 @@ body::after {
 .section {
   padding: 5rem 0;
   position: relative;
+  transition: background 0.4s ease;
 }
 
 .section-header {
@@ -298,13 +514,14 @@ body::after {
 }
 
 .section-tag {
-  color: var(--accent-cyan);
+  color: var(--section-tag-color);
   font-weight: 600;
   text-transform: uppercase;
   font-size: 0.825rem;
   letter-spacing: 0.1em;
   display: block;
   margin-bottom: 0.5rem;
+  transition: color 0.3s ease;
 }
 
 .section-title {
@@ -313,6 +530,7 @@ body::after {
   letter-spacing: -0.02em;
   color: var(--text-white);
   margin-bottom: 0.75rem;
+  transition: color 0.3s ease;
 }
 
 .section-subtitle {
@@ -321,15 +539,17 @@ body::after {
   font-weight: 400;
   max-width: 580px;
   margin: 0 auto;
+  transition: color 0.3s ease;
 }
 
 /* ==========================================================================
    Experience Section (Cards & Timeline Grid)
    ========================================================================== */
 .bg-purple {
-  background: linear-gradient(180deg, rgba(18, 20, 38, 0) 0%, rgba(25, 18, 48, 0.5) 50%, rgba(18, 20, 38, 0) 100%);
-  border-top: 1px solid rgba(121, 40, 202, 0.12);
-  border-bottom: 1px solid rgba(121, 40, 202, 0.12);
+  background: var(--bg-section-accent);
+  border-top: 1px solid var(--border-section-accent);
+  border-bottom: 1px solid var(--border-section-accent);
+  transition: background 0.4s ease, border-color 0.4s ease;
 }
 
 .experience-list {
@@ -341,8 +561,8 @@ body::after {
 
 .experience-card {
   background: var(--bg-card);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
   padding: 2.25rem;
@@ -363,7 +583,7 @@ body::after {
   right: 0;
   height: 3px;
   background: var(--gradient-primary);
-  opacity: 0.4;
+  opacity: 0.7;
   transition: var(--transition);
 }
 
@@ -392,6 +612,7 @@ body::after {
   font-weight: 700;
   color: var(--text-white);
   letter-spacing: -0.01em;
+  transition: color 0.3s ease;
 }
 
 .year-badge {
@@ -399,18 +620,20 @@ body::after {
   font-weight: 600;
   padding: 0.3rem 0.75rem;
   border-radius: var(--radius-full);
-  background: rgba(121, 40, 202, 0.2);
-  color: #d8b4fe;
-  border: 1px solid rgba(121, 40, 202, 0.35);
+  background: var(--card-badge-bg);
+  color: var(--card-badge-color);
+  border: 1px solid var(--card-badge-border);
   white-space: nowrap;
+  transition: var(--transition);
 }
 
 .role {
   display: inline-block;
   font-size: 1.05rem;
   font-weight: 600;
-  color: var(--accent-cyan);
+  color: var(--card-role-color);
   margin-bottom: 1rem;
+  transition: color 0.3s ease;
 }
 
 .description {
@@ -418,6 +641,7 @@ body::after {
   font-size: 1rem;
   line-height: 1.6;
   margin-top: auto;
+  transition: color 0.3s ease;
 }
 
 /* ==========================================================================
@@ -426,6 +650,7 @@ body::after {
 .contact-wrapper {
   background: var(--bg-card);
   backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
   padding: 3.5rem 2.5rem;
@@ -435,6 +660,7 @@ body::after {
   box-shadow: var(--shadow-card);
   position: relative;
   overflow: hidden;
+  transition: var(--transition);
 }
 
 .contact-wrapper::after {
@@ -445,14 +671,16 @@ body::after {
   transform: translateX(-50%);
   width: 300px;
   height: 300px;
-  background: radial-gradient(circle, rgba(121, 40, 202, 0.25) 0%, transparent 70%);
+  background: var(--glow-contact);
   pointer-events: none;
+  transition: background 0.5s ease;
 }
 
 .contact-text {
   color: var(--text-muted);
   font-size: 1.2rem;
   margin-bottom: 2.25rem;
+  transition: color 0.3s ease;
 }
 
 .contact-links {
@@ -467,8 +695,8 @@ body::after {
   display: inline-flex;
   align-items: center;
   gap: 0.65rem;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--border-subtle);
+  background: var(--contact-chip-bg);
+  border: 1px solid var(--contact-chip-border);
   padding: 0.85rem 1.5rem;
   border-radius: var(--radius-full);
   color: var(--text-main);
@@ -485,11 +713,11 @@ body::after {
 }
 
 .contact-chip:hover {
-  background: rgba(121, 40, 202, 0.2);
-  border-color: rgba(121, 40, 202, 0.5);
-  color: var(--text-white);
+  background: var(--contact-chip-hover-bg);
+  border-color: var(--contact-chip-hover-border);
+  color: var(--contact-chip-hover-color);
   transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(121, 40, 202, 0.25);
+  box-shadow: var(--contact-chip-hover-shadow);
 }
 
 /* ==========================================================================
@@ -498,8 +726,9 @@ body::after {
 .footer {
   border-top: 1px solid var(--border-subtle);
   padding: 2.5rem 0;
-  background: rgba(11, 12, 22, 0.8);
+  background: var(--footer-bg);
   margin-top: 3rem;
+  transition: var(--transition);
 }
 
 .footer-content {
@@ -513,6 +742,7 @@ body::after {
 .footer-copy {
   color: var(--text-dim);
   font-size: 0.9rem;
+  transition: color 0.3s ease;
 }
 
 .footer-badge {
@@ -521,6 +751,7 @@ body::after {
   gap: 0.4rem;
   color: var(--text-muted);
   font-size: 0.85rem;
+  transition: color 0.3s ease;
 }
 
 /* ==========================================================================
@@ -528,10 +759,10 @@ body::after {
    ========================================================================== */
 @keyframes pulse-glow {
   0%, 100% {
-    box-shadow: 0 0 10px rgba(121, 40, 202, 0.2);
+    box-shadow: 0 0 10px var(--badge-glow-1);
   }
   50% {
-    box-shadow: 0 0 20px rgba(121, 40, 202, 0.5);
+    box-shadow: 0 0 20px var(--badge-glow-2);
   }
 }
 
@@ -558,6 +789,11 @@ body::after {
   .nav-link {
     padding: 0.4rem 0.75rem;
     font-size: 0.85rem;
+  }
+
+  .theme-toggle-btn {
+    padding: 0.3rem 0.65rem 0.3rem 0.35rem;
+    font-size: 0.8rem;
   }
 
   .hero-section {
@@ -588,13 +824,17 @@ body::after {
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 540px) {
   .logo {
-    font-size: 1.05rem;
+    font-size: 1rem;
+    max-width: 140px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .nav-container {
-    padding: 0 1rem;
+    padding: 0 0.85rem;
   }
 
   .nav-links {
@@ -602,8 +842,16 @@ body::after {
   }
 
   .nav-link {
-    padding: 0.35rem 0.6rem;
-    font-size: 0.8rem;
+    padding: 0.35rem 0.55rem;
+    font-size: 0.78rem;
+  }
+
+  .theme-toggle-btn {
+    padding: 0.3rem;
+  }
+
+  .theme-toggle-text {
+    display: none;
   }
 
   .hero-actions {
@@ -625,3 +873,4 @@ body::after {
     justify-content: center;
   }
 }
+

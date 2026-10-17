@@ -12,6 +12,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="index.css">
+  <script>
+    (function () {
+      const savedTheme = localStorage.getItem('portfolio-theme') || 'morning';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    })();
+  </script>
 </head>
 
 <body>
@@ -21,6 +27,25 @@
       <div class="nav-links">
         <a href="#experiencia" class="nav-link">Experiencia</a>
         <a href="#contacto" class="nav-link nav-cta">Contacto</a>
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Cambiar a Modo Noche" title="Cambiar a Modo Noche">
+          <span class="theme-icon-container">
+            <svg class="theme-icon sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg class="theme-icon moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </span>
+          <span class="theme-toggle-text">Modo Mañana</span>
+        </button>
       </div>
     </nav>
   </header>
@@ -131,6 +156,36 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const themeToggleText = document.querySelector('.theme-toggle-text');
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('portfolio-theme', theme);
+
+      const isMorning = theme === 'morning';
+      if (themeToggleText) {
+        themeToggleText.textContent = isMorning ? 'Modo Mañana' : 'Modo Noche';
+      }
+      if (themeToggleBtn) {
+        const nextMode = isMorning ? 'Modo Noche' : 'Modo Mañana';
+        themeToggleBtn.setAttribute('title', `Cambiar a ${nextMode}`);
+        themeToggleBtn.setAttribute('aria-label', `Cambiar a ${nextMode}`);
+      }
+    }
+
+    // Initialize with current state
+    const currentTheme = localStorage.getItem('portfolio-theme') || 'morning';
+    applyTheme(currentTheme);
+
+    themeToggleBtn.addEventListener('click', () => {
+      const activeTheme = document.documentElement.getAttribute('data-theme') || 'morning';
+      const nextTheme = activeTheme === 'morning' ? 'night' : 'morning';
+      applyTheme(nextTheme);
+    });
+  </script>
 </body>
 
 </html>
