@@ -44,7 +44,6 @@
               <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
             </svg>
           </span>
-          <span class="theme-toggle-text">Modo Mañana</span>
         </button>
       </div>
     </nav>
@@ -159,16 +158,12 @@
 
   <script>
     const themeToggleBtn = document.getElementById('theme-toggle');
-    const themeToggleText = document.querySelector('.theme-toggle-text');
 
     function applyTheme(theme) {
       document.documentElement.setAttribute('data-theme', theme);
       localStorage.setItem('portfolio-theme', theme);
 
       const isMorning = theme === 'morning';
-      if (themeToggleText) {
-        themeToggleText.textContent = isMorning ? 'Modo Mañana' : 'Modo Noche';
-      }
       if (themeToggleBtn) {
         const nextMode = isMorning ? 'Modo Noche' : 'Modo Mañana';
         themeToggleBtn.setAttribute('title', `Cambiar a ${nextMode}`);
