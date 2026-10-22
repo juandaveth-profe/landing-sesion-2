@@ -120,9 +120,87 @@
       <div class="container">
         <div class="contact-wrapper">
           <span class="section-tag">Conectemos</span>
-          <h2 class="section-title">Datos de contacto</h2>
-          <p class="contact-text">Ponte en contacto para futuras oportunidades, colaboraciones o asesoría en proyectos
-            Web3.</p>
+          <h2 class="section-title">Envíame un mensaje</h2>
+          <p class="contact-text">Ponte en contacto para futuras oportunidades, colaboraciones o proyectos en Web3.</p>
+
+          <!-- Formulario conectado a Cloud Firestore (/mensajes) -->
+          <form id="contact-form" class="contact-form" novalidate>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="nombre" class="form-label">
+                  Nombre <span class="required-star" aria-hidden="true">*</span>
+                </label>
+                <div class="input-wrapper">
+                  <input
+                    type="text"
+                    id="nombre"
+                    name="nombre"
+                    class="form-input"
+                    placeholder="Tu nombre completo"
+                    required
+                    autocomplete="name"
+                  />
+                </div>
+                <span class="field-error" id="nombre-error" role="alert"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="correo" class="form-label">
+                  Correo electrónico <span class="required-star" aria-hidden="true">*</span>
+                </label>
+                <div class="input-wrapper">
+                  <input
+                    type="email"
+                    id="correo"
+                    name="correo"
+                    class="form-input"
+                    placeholder="tunombre@ejemplo.com"
+                    required
+                    autocomplete="email"
+                  />
+                </div>
+                <span class="field-error" id="correo-error" role="alert"></span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="form-label-row">
+                <label for="mensaje" class="form-label">
+                  Mensaje <span class="required-star" aria-hidden="true">*</span>
+                </label>
+                <span id="char-counter" class="char-counter" aria-live="polite">0 / 2000</span>
+              </div>
+              <div class="input-wrapper">
+                <textarea
+                  id="mensaje"
+                  name="mensaje"
+                  class="form-input form-textarea"
+                  rows="5"
+                  maxlength="2000"
+                  placeholder="¿En qué te puedo colaborar o participar? (máx. 2000 caracteres)"
+                  required
+                ></textarea>
+              </div>
+              <span class="field-error" id="mensaje-error" role="alert"></span>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" id="submit-btn" class="btn btn-primary submit-btn">
+                <span class="btn-spinner" aria-hidden="true"></span>
+                <span class="btn-label">Enviar mensaje</span>
+                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="22" y1="2" x2="11" y2="13"></line>
+                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+              </button>
+            </div>
+
+            <div id="form-feedback" class="form-feedback" role="alert" style="display: none;"></div>
+          </form>
+
+          <div class="contact-divider">
+            <span>O encuéntrame directamente en</span>
+          </div>
 
           <div class="contact-links">
             <a href="mailto:jd.reyespaez@gmail.com" class="contact-chip" title="Enviar correo">
@@ -181,6 +259,7 @@
       applyTheme(nextTheme);
     });
   </script>
+  <script type="module" src="contact.js"></script>
 </body>
 
 </html>
