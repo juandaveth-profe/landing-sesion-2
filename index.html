@@ -145,6 +145,40 @@
         </div>
       </div>
     </section>
+    <!-- Contact Form Section -->
+    <section id="formulario" class="section bg-purple">
+      <div class="container">
+        <div class="contact-form-wrapper">
+          <span class="section-tag">Escríbeme</span>
+          <h2 class="section-title">Envíame un mensaje</h2>
+          <p class="contact-text">¿Tienes una idea, propuesta o simplemente quieres saludar? Llena el formulario y te responderé pronto.</p>
+
+          <form id="contact-form" class="contact-form" autocomplete="off">
+            <div class="form-group">
+              <label for="form-nombre" class="form-label">Nombre</label>
+              <input type="text" id="form-nombre" name="nombre" class="form-input" placeholder="Tu nombre completo" required>
+            </div>
+            <div class="form-group">
+              <label for="form-correo" class="form-label">Correo electrónico</label>
+              <input type="email" id="form-correo" name="correo" class="form-input" placeholder="tu@correo.com" required>
+            </div>
+            <div class="form-group">
+              <label for="form-mensaje" class="form-label">Mensaje</label>
+              <textarea id="form-mensaje" name="mensaje" class="form-input form-textarea" placeholder="Cuéntame sobre tu proyecto o idea…" rows="5" required></textarea>
+            </div>
+            <button type="submit" id="form-submit-btn" class="btn btn-primary form-submit-btn">
+              <span class="btn-text">Enviar</span>
+              <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+            </button>
+          </form>
+
+          <div id="form-status" class="form-status" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="footer">
@@ -181,6 +215,7 @@
       applyTheme(nextTheme);
     });
   </script>
+  <script type="module" src="app.js"></script>
 </body>
 
 </html>
