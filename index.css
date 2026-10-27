@@ -81,16 +81,6 @@
 
   --footer-bg: rgba(248, 250, 252, 0.9);
 
-  /* Form & Input Variables */
-  --input-bg: rgba(255, 255, 255, 0.95);
-  --input-border: rgba(203, 213, 225, 0.9);
-  --input-text: #0f172a;
-  --input-placeholder: #94a3b8;
-  --input-focus-border: #ea580c;
-  --input-focus-ring: rgba(234, 88, 12, 0.2);
-  --input-error-border: #dc2626;
-  --input-error-ring: rgba(220, 38, 38, 0.2);
-
   /* Layout & Spacing */
   --max-width: 1120px;
   --header-height: 76px;
@@ -176,16 +166,6 @@
   --nav-link-hover-color: var(--text-white);
 
   --footer-bg: rgba(11, 12, 22, 0.8);
-
-  /* Form & Input Variables */
-  --input-bg: rgba(18, 20, 38, 0.65);
-  --input-border: rgba(255, 255, 255, 0.12);
-  --input-text: #f8fafc;
-  --input-placeholder: #64748b;
-  --input-focus-border: #c084fc;
-  --input-focus-ring: rgba(121, 40, 202, 0.35);
-  --input-error-border: #f87171;
-  --input-error-ring: rgba(248, 113, 113, 0.3);
 }
 
 /* ==========================================================================
@@ -751,23 +731,44 @@ body::after {
 }
 
 /* ==========================================================================
-   Contact Form Styles (Firestore integration)
+   Contact Form
    ========================================================================== */
-.contact-form {
-  margin: 2.25rem auto 2.25rem;
-  max-width: 680px;
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  gap: 1.35rem;
+.contact-form-wrapper {
+  background: var(--bg-card);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 3.5rem 2.5rem;
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto;
+  box-shadow: var(--shadow-card);
   position: relative;
-  z-index: 2;
+  overflow: hidden;
+  transition: var(--transition);
 }
 
-.form-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.35rem;
+.contact-form-wrapper::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  height: 300px;
+  background: var(--glow-contact);
+  pointer-events: none;
+  transition: background 0.5s ease;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  text-align: left;
+  position: relative;
+  z-index: 1;
 }
 
 .form-group {
@@ -776,258 +777,163 @@ body::after {
   gap: 0.45rem;
 }
 
-.form-label-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .form-label {
-  font-size: 0.925rem;
+  font-size: 0.9rem;
   font-weight: 600;
   color: var(--text-main);
-  letter-spacing: -0.01em;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.25rem;
-}
-
-.required-star {
-  color: #ea580c;
-  font-weight: 700;
-}
-
-[data-theme="night"] .required-star {
-  color: #c084fc;
-}
-
-.char-counter {
-  font-size: 0.8rem;
-  font-weight: 500;
-  color: var(--text-dim);
-  font-variant-numeric: tabular-nums;
-  transition: color 0.2s ease;
-}
-
-.char-counter.warning {
-  color: #ea580c;
-  font-weight: 600;
-}
-
-.char-counter.limit {
-  color: #dc2626;
-  font-weight: 700;
-}
-
-.input-wrapper {
-  position: relative;
-  width: 100%;
+  letter-spacing: 0.01em;
+  transition: color 0.3s ease;
 }
 
 .form-input {
   width: 100%;
   padding: 0.85rem 1.15rem;
-  font-family: inherit;
-  font-size: 0.975rem;
-  color: var(--input-text);
-  background: var(--input-bg);
-  border: 1px solid var(--input-border);
+  font-family: 'Outfit', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--text-main);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
-  transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, color 0.25s ease;
   outline: none;
+  transition: var(--transition);
+  -webkit-appearance: none;
 }
 
 .form-input::placeholder {
-  color: var(--input-placeholder);
-  opacity: 1;
+  color: var(--text-dim);
 }
 
 .form-input:focus {
-  border-color: var(--input-focus-border);
-  box-shadow: 0 0 0 3px var(--input-focus-ring);
+  border-color: var(--border-highlight);
+  box-shadow: 0 0 0 3px rgba(121, 40, 202, 0.12);
 }
 
-.form-input.has-error {
-  border-color: var(--input-error-border);
-  box-shadow: 0 0 0 3px var(--input-error-ring);
+[data-theme="morning"] .form-input:focus {
+  box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.12);
 }
 
 .form-textarea {
-  min-height: 130px;
   resize: vertical;
+  min-height: 120px;
   line-height: 1.6;
 }
 
-.field-error {
-  display: block;
-  font-size: 0.82rem;
-  color: #dc2626;
-  font-weight: 500;
-  min-height: 1.1rem;
-  opacity: 0;
-  transform: translateY(-4px);
-  transition: all 0.2s ease;
+.form-submit-btn {
+  align-self: flex-start;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+  position: relative;
+  overflow: hidden;
 }
 
-[data-theme="night"] .field-error {
-  color: #f87171;
+.form-submit-btn .btn-icon {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.field-error.visible {
-  opacity: 1;
-  transform: translateY(0);
+.form-submit-btn:hover .btn-icon {
+  transform: translate(3px, -3px);
 }
 
-.form-actions {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 1rem;
-}
-
-.submit-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.65rem;
-  font-weight: 600;
-  padding: 0.9rem 2.2rem;
-  border-radius: var(--radius-full);
-  border: none;
-  cursor: pointer;
-  background: var(--gradient-primary);
-  color: #ffffff;
-  box-shadow: var(--btn-cta-shadow);
-  transition: var(--transition);
-}
-
-.submit-btn:hover:not(:disabled) {
-  transform: translateY(-3px);
-  box-shadow: var(--btn-cta-hover-shadow);
-}
-
-.submit-btn:disabled {
-  opacity: 0.65;
+.form-submit-btn:disabled {
+  opacity: 0.7;
   cursor: not-allowed;
   transform: none !important;
 }
 
-.submit-btn .btn-icon {
-  width: 18px;
-  height: 18px;
-  transition: transform 0.25s ease;
+.form-submit-btn--loading .btn-text::after {
+  content: '…';
+  animation: dots-pulse 1.2s steps(3, end) infinite;
 }
 
-.submit-btn:hover:not(:disabled) .btn-icon {
-  transform: translateX(3px) translateY(-2px);
+@keyframes dots-pulse {
+  0%   { content: '.'; }
+  33%  { content: '..'; }
+  66%  { content: '...'; }
+  100% { content: '…'; }
 }
 
-.btn-spinner {
-  display: none;
-  width: 18px;
-  height: 18px;
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  border-top-color: #ffffff;
-  border-radius: 50%;
-  animation: btn-spin 0.8s linear infinite;
-}
-
-.submit-btn.loading .btn-spinner {
-  display: inline-block;
-}
-
-.submit-btn.loading .btn-icon {
-  display: none;
-}
-
-@keyframes btn-spin {
-  to { transform: rotate(360deg); }
-}
-
-/* Feedback alert / notifications */
-.form-feedback {
-  padding: 1rem 1.25rem;
-  border-radius: var(--radius-md);
+/* Status messages */
+.form-status {
+  margin-top: 1.25rem;
+  padding: 0;
   font-size: 0.95rem;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  animation: slide-feedback 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  text-align: left;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.4s ease, max-height 0.4s ease, padding 0.4s ease, margin 0.4s ease;
+  position: relative;
+  z-index: 1;
 }
 
-@keyframes slide-feedback {
+.form-status--visible {
+  opacity: 1;
+  max-height: 80px;
+  padding: 0.85rem 1.25rem;
+}
+
+.form-status--success {
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  color: #059669;
+}
+
+[data-theme="night"] .form-status--success {
+  color: #34d399;
+}
+
+.form-status--error {
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  color: #dc2626;
+}
+
+[data-theme="night"] .form-status--error {
+  color: #f87171;
+}
+
+/* Success message (replaces form after send) */
+.form-success-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 2rem 1rem;
+  position: relative;
+  z-index: 1;
+  animation: fade-in-up 0.5s ease both;
+}
+
+.form-success-icon {
+  font-size: 3rem;
+  line-height: 1;
+  display: block;
+}
+
+.form-success-text {
+  font-size: 1.15rem;
+  color: var(--text-main);
+  text-align: center;
+  line-height: 1.7;
+  max-width: 480px;
+}
+
+.form-success-text strong {
+  color: var(--title-color);
+  font-weight: 700;
+}
+
+@keyframes fade-in-up {
   from {
     opacity: 0;
-    transform: translateY(-8px);
+    transform: translateY(16px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-.form-feedback.success {
-  background: rgba(34, 197, 94, 0.12);
-  border: 1px solid rgba(34, 197, 94, 0.35);
-  color: #15803d;
-}
-
-[data-theme="night"] .form-feedback.success {
-  background: rgba(34, 197, 94, 0.16);
-  border-color: rgba(74, 222, 128, 0.35);
-  color: #86efac;
-}
-
-.form-feedback.error {
-  background: rgba(239, 68, 68, 0.12);
-  border: 1px solid rgba(239, 68, 68, 0.35);
-  color: #b91c1c;
-}
-
-[data-theme="night"] .form-feedback.error {
-  background: rgba(239, 68, 68, 0.16);
-  border-color: rgba(248, 113, 113, 0.35);
-  color: #fca5a5;
-}
-
-.form-feedback.info {
-  background: rgba(59, 130, 246, 0.12);
-  border: 1px solid rgba(59, 130, 246, 0.35);
-  color: #1d4ed8;
-}
-
-[data-theme="night"] .form-feedback.info {
-  background: rgba(59, 130, 246, 0.16);
-  border-color: rgba(96, 165, 250, 0.35);
-  color: #93c5fd;
-}
-
-/* Divider between form and contact chips */
-.contact-divider {
-  display: flex;
-  align-items: center;
-  margin: 2.25rem auto 1.75rem;
-  max-width: 680px;
-  color: var(--text-dim);
-  font-size: 0.825rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-
-.contact-divider::before,
-.contact-divider::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: var(--border-subtle);
-}
-
-.contact-divider span {
-  padding: 0 1.25rem;
-  color: var(--text-muted);
 }
 
 /* ==========================================================================
@@ -1128,18 +1034,8 @@ body::after {
     padding: 2.5rem 1.5rem;
   }
 
-  .form-grid {
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
-  }
-
-  .form-actions {
-    justify-content: stretch;
-  }
-
-  .submit-btn {
-    width: 100%;
-    justify-content: center;
+  .contact-form-wrapper {
+    padding: 2.5rem 1.5rem;
   }
 
   .footer-content {
@@ -1192,6 +1088,15 @@ body::after {
   }
 
   .contact-chip {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .contact-form-wrapper {
+    padding: 2rem 1.15rem;
+  }
+
+  .form-submit-btn {
     width: 100%;
     justify-content: center;
   }
