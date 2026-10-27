@@ -894,6 +894,48 @@ body::after {
   color: #f87171;
 }
 
+/* Success message (replaces form after send) */
+.form-success-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 2rem 1rem;
+  position: relative;
+  z-index: 1;
+  animation: fade-in-up 0.5s ease both;
+}
+
+.form-success-icon {
+  font-size: 3rem;
+  line-height: 1;
+  display: block;
+}
+
+.form-success-text {
+  font-size: 1.15rem;
+  color: var(--text-main);
+  text-align: center;
+  line-height: 1.7;
+  max-width: 480px;
+}
+
+.form-success-text strong {
+  color: var(--title-color);
+  font-weight: 700;
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* ==========================================================================
    Footer
    ========================================================================== */
